@@ -1,0 +1,29 @@
+class typhoon_direct:
+    def __init__(self):
+        self.directory = {"Agaton":["March","95kph"],
+                          "Basyang":["July","130kph"],
+                          "Caloy":["july","65kph"]
+        }
+
+    def month(self,typhoon_name):
+        try:
+            print(f"{typhoon_name} month: {self.directory[typhoon_name][0]}, speed:{self.directory[typhoon_name][1]}")
+        except KeyError:
+            print("Typhoon {typhoon_direct} is not in the List")
+            
+    def add_typhoon(self,typhoon_name,month,speed):
+        self.directory[typhoon_name] = [month, speed]
+        print(f"New Typhoon Add {typhoon_name} The month is {month} Speed of {speed}")
+        
+Directory = typhoon_direct()
+typhoon =input("Input Typhoon: ")
+Directory.month(typhoon)
+
+add_bagyo =input("DO do you want to add new typhoon? yes/no: ")
+
+if add_bagyo.lower()=="yes":
+    new_typhoon = input("Enter typhoon: ")
+    new_month = input("Enter month: ")
+    new_speed = input("Enter speed: ")
+    Directory.add_typhoon(new_typhoon,new_month,new_speed)
+    Directory.month(new_typhoon)
